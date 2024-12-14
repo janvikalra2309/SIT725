@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Fleecebag</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+      }
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Fleecebags</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Home Page</a></li>
+          </ul>
+        </div>
+      </nav>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center white-text text-dark-2">Fleecebags</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">One Stop Solution for all kinds of Bags</h5>
+        </div>
+        <div class="row center">
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light pink lighten-1">Dive into the world of Bags</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="c4.jpg"></div>
+  </div>
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Carry Your World in Style – Discover Bags for Every Occasion.</h5>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Your Next Adventure Starts Here – Travel Bags Built to Last.</h5>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Eco-Friendly, Stylishly You – Sustainable Bags for Modern Living.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="login.png">
+          <span class="card-title">Explore Versatile Styles Perfect for Work, Travel, and Beyond.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+      </div>
+    </div>
+    <div class="parallax"><img src="banner2.gif" alt="Unsplashed background img 2"></div>
+  </div>
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="c1.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer" style="background-color: #f0f0f0;">
+    <!-- Form Section Inside Footer -->
+    <div class="row">
+      <form class="col s12" id="myForm">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="interest" type="text" class="validate">
+            <label for="interest">Interested Products</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button type="submit" class="btn waves-effect waves-light">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- End of Form Section -->
+  
+    <!-- Copyright Section Moved to the Bottom -->
+    <div class="footer-copyright">
+      <div class="container-1" style="color: rgb(250, 0, 42); text-align: center; font-weight: bold;">
+        Made by Janvi Kalra
+      </div>
+    </div>
+    
+  </footer>
+  
+  
+  
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent default form submission (page refresh)
+  
+      // Collect form data
+      const formData = {
+        first_name: document.getElementById('first_name').value,
+        last_name: document.getElementById('last_name').value,
+        interest: document.getElementById('interest').value,
+        email: document.getElementById('email').value
+      };
+  
+      // Send form data to the backend using fetch
+      fetch('http://localhost:5001/submit', {  // Make sure the port matches your backend
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'  // Sending JSON data
+        },
+        body: JSON.stringify(formData)  // Convert form data to JSON string
+      })
+      .then(response => response.json())  // Parse the JSON response from the server
+      .then(data => {
+        alert('Thank You! Your data has been submitted.');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting the data.');
+      });
+    });
+  </script>  
+  </body>
+</html>
